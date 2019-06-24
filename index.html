@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>choose pokemon screen</title>
+  <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+<div class = "content">
+  <h1>Pokemon Battle</h1>
+  <h2>Select 6 pokemon to fight with you</h2>
+  <button id="changePage">START THE BATTLE</button>
+<div class = "pokemonList">
+  <div id="column1Pokemon">
+
+  <div id= "charizard">
+    <div class = "info">
+      <img src = "images/Charizard.gif">
+      <div>
+      <h3>Charizard</h3>
+      <p>A Badass dragon</p>
+      </div>
+    </div>  
+  </div>
+  <div id = "Feraligatr">
+      <div class = "info">
+        <img src = "images/Feraligatr.gif">
+        <div>
+        <h3>Feraligatr</h3>
+        <p>A mutant alligator</p>
+        </div>
+      </div>  
+  </div>
+  <div id = "Gengar">
+      <div class = "info">
+        <img src = "images/Gengar.gif">
+        <div>
+        <h3>Gengar</h3>
+        <p>A Ghost</p>
+        </div>
+      </div>  
+  </div>
+  <div id = "Mewtwo">
+      <div class = "info">   
+        <img src = "images/Mewtwo.gif">
+        <div>
+        <h3>Mewtwo</h3>
+        <p></p>
+        </div>
+      </div>  
+  </div>
+  <div id = "Pikachu">
+      <div class = "info">
+        <img src = "images/Pikachu.gif">
+        <h3>Pikachu</h3>
+        <p>Oh great a yellow Rat</p>
+      </div>  
+  </div>
+  <div id = "Salamance">   
+      <div class = "info">
+        <img src = "images/Salamence.gif">
+        <div>
+        <h3>Salamance</h3>
+        <p></p>
+        </div>
+      </div>  
+  </div>
+  </div>
+
+  <div id = "column2Pokemon">
+  <div id= "Swamper">   
+      <div class = "info">
+        <img src = "images/Swamper.gif">
+        <div>
+        <h3>Swamper</h3>
+        <p></p>
+        </div>
+      </div>  
+  </div>
+  <div id= "Sceptile">   
+      <div class = "info">
+        <img src = "images/Sceptile.gif">
+        <div>
+        <h3>Sceptile</h3>
+        <p></p>
+        </div>
+      </div>  
+  </div>
+  <div id = "Tyranitar">
+      <div class = "info">
+        <img src = "images/Tyranitar.gif">
+        <div>
+        <h3>Tyranitar</h3>
+        <p></p>
+        </div>
+      </div>  
+  </div>
+  <div id = "Metapod">
+      <div class = "info">
+        <img src = "images/metapod.gif">
+        <div>
+        <h3>Metapod</h3>
+        <p>The almighty Metapod</p>
+        </div>
+      </div>  
+  </div>
+  <div id= "Raikou">
+      <div class = "info">
+        <img src = "images/raikou.gif">
+        <div>
+        <h3>Raikou</h3>
+        <p></p>
+        </div>
+      </div>  
+  </div>
+  <div id= "typhlosion">
+      <div class = "info">
+        <img src = "images/typhlosion.gif">
+        <div>
+        <h3>Typhlosion</h3>
+        <p></p>
+        </div>
+      </div>  
+  </div>
+  </div>
+</div>
+</div> 
+<div class="stadium">
+    <div class="backgroundTemplate">
+      <div id="infoTable1">
+        <p id="Name2">Name:</p>
+        <p id="HP2">HP:</p>
+      </div>
+      <div id="pokemon1">
+
+      </div>
+      <div id="infoTable2">
+        <p id="Name1">Name:</p>
+        <p id="HP1">HP:</p>
+      </div>
+      <div id="pokemon2">
+
+      </div>
+    </div>
+    <div class="attackTemplate">
+      <div class="attacks">
+        <div class="row1Attacks">
+          <button id="attack1">attack1</button>
+          <button id="attack2">attack2</button>
+        </div>
+        <div class="row2Attacks">
+          <button id="attack3">attack3</button>
+          <button id="attack4">attack4</button>
+        </div>
+      </div>
+      <div id="console">
+        <p id="text"></p>
+      </div>
+    </div>
+  </div>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script src="js/enemy.js"></script>
+  <script src = "js/Player.js"></script>
+  <script src="js/Pokemon.js"></script>
+  <script src="js/Game.js"></script>
+</body>
+</html>
