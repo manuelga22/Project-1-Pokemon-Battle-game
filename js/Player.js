@@ -1,14 +1,36 @@
 class Player{
-  constructor(){
+  constructor(name){
+    this.name=name;
     this.team =[];
   }
- checkIfPokemonAlive(){
-    if(this.team[0].hp>0){
-      return true;
-    }else return false;
+ attackEndOfTurn(enemy){
+  //updates console
+  $("#text").text(`${enemy.team[0].name} used 
+  ${enemy.team[0].attacks[Math.floor(Math.random()*3)]}`);
+  //does damage
+  this.team[0].dealDamage(30,red);
+  //checks if pokemon was killed in the second turn
+   if(!(red.team[0].checkIfPokemonAlive())){
+      setTimeout(function(){
+      changePokemon(red);
+      },1500);
+   }
+ }
+ attack(index){
+   //updates console
+  $("#text").text(`${this.team[0].name} used 
+  ${this.team[0].attacks[index]}`);
+  //does damage
+  this.team[0].dealDamage(30,gary);
+  //checks if other pokemon is alive
+  if(gary.team[0].checkIfPokemonAlive()){
+    setTimeout(function(){
+      red.attackEndOfTurn(gary);
+    },2000);  
+  }else{
+    changePokemon(gary);
   }
- attack(index,enemy){//updates console
-  $("#text").text(`${this.team[0].name} used ${this.team[0].attacks[index]}`);
-  this.team[0].dealDamage(red,30,enemy);
   }
+
+
 }
