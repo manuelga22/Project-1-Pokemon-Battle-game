@@ -30,7 +30,7 @@ class Enemy {
   }
   checkIfLost(){
     if(this.team.length == 0){
-      alert('You won');
+      $(".youWin").text("YOU WIN");
     }
   }
 } //end of class

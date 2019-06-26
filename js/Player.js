@@ -27,7 +27,7 @@ class Player {
   }
   checkIfLost(){
     if(this.team.length == 0){
-      alert('You lost');
+      $(".youLose").text("YOU LOSE");
     }
   }
 }

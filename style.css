@@ -225,3 +225,11 @@ img{
 .row1Attacks button, .row2Attacks button{
   margin: 20px;
 }
+.youWin{
+  width: 60%;
+  height:20%;
+}
+.youLose{
+  width: 60%;
+  height:20%;
+}
