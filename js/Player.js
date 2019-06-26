@@ -3,12 +3,9 @@ class Player{
     this.name=name;
     this.team =[];
   }
- attackEndOfTurn(enemy){
-  //updates console
-  $("#text").text(`${enemy.team[0].name} used 
-  ${enemy.team[0].attacks[Math.floor(Math.random()*3)]}`);
-  //does damage
-  this.team[0].dealDamage(30,red);
+ attackEndOfTurn(index){
+ 
+  increaseOrDecreaseDamage(gary,red,index);
   //checks if pokemon was killed in the second turn
    if(!(red.team[0].checkIfPokemonAlive())){
       setTimeout(function(){
@@ -17,18 +14,15 @@ class Player{
    }
  }
  attack(index){
-   //updates console
-  $("#text").text(`${this.team[0].name} used 
-  ${this.team[0].attacks[index]}`);
-  //does damage
-  this.team[0].dealDamage(30,gary);
-  //checks if other pokemon is alive
+  increaseOrDecreaseDamage(red,gary,index);
   if(gary.team[0].checkIfPokemonAlive()){
     setTimeout(function(){
-      red.attackEndOfTurn(gary);
+      red.attackEndOfTurn(0);
+      $("button").css("pointer-events", "all");
     },2000);  
   }else{
     changePokemon(gary);
+    $("button").css("pointer-events", "all");
   }
   }
 

@@ -1,3 +1,7 @@
+@font-face {
+  font-family: "8-bit";
+  src: url(font/8bit16.ttf);
+ }
 body{
   background-color:rgba(0, 0, 105,0.4);
   background-size:cover;
@@ -12,6 +16,7 @@ body{
   border:solid;
   border-radius: 4px;
 }
+
 #text{
   font-size: 25px;
 }
@@ -50,20 +55,118 @@ img{
   align-items: center;
 }
 #pokemon1, #pokemon2{
-  width:100px;
-  height:160px;
+  text-align: center;
+  width: 300px;
+  height:260px;
 }
 #pokemon1{
-  border:solid;
-  position:absolute;
-  top:500px;
-  left:600px;
+  position: absolute;
+  top: 400px;
+  left: 500px;
 }
+#pokemon1 img{
+  width:180;
+  height:250px;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  text-align:center;
+}
+#pokemon2 img{
+  width:180;
+  height:250px;
+}
+#AnimationFire1{
+  width: 100px;
+  height:120px;
+  position: absolute;
+  top: 40px;
+  left: 120px;
+  animation: play 1.2s steps(20);
+}
+#AnimationWater1{
+  width: 100px;
+  height:120px;
+  position: absolute;
+  top: 60px;
+  left: 80px;
+  animation: play3 1.2s steps(20);
+}
+#AnimationNeutral1{
+  width: 100px;
+  height:120px;
+  position: absolute;
+  top: 40px;
+  left: 120px;
+  animation: play3 1.2s steps(20);
+}
+
+#AnimationFire2{
+  width: 100px;
+  height:120px;
+  position: absolute;
+  top: 60px;
+  left: 80px;
+  animation: play 1.2s steps(20);
+}
+#AnimationWater2{
+  width: 200px;
+  height: 300px;
+  position: absolute;
+  bottom: 30px;
+  left: 45px;
+  animation: play2 1.2s steps(20);
+}
+#AnimationNeutral2{
+  width: 100px;
+  height:120px;
+  position: absolute;
+  top: 60px;
+  left: 80px;
+  animation: play3 1.2s steps(20);
+}
+@keyframes play {
+   100% { background-position: -606px; } 
+   0%{ background: url('images/fireAttack/fireAttack11.PNG') }
+  25%{ background: url('images/fireAttack/fireAttack22.PNG') }
+  50%{ background: url('images/fireAttack/fireAttack33.PNG') }
+  100%{ background: url('images/fireAttack/fireAttack44.PNG') }
+}  
+@keyframes play2 {
+  /* 100% { background-position: -606px; } */
+  0%{ 
+    background: url('images/waterAttack/waterAttack11.png');
+    background-size: cover;
+  }
+  25%{ 
+    background: url('images/waterAttack/waterAttack22.png');
+    background-size: cover;
+  }
+  50%{ 
+    background: url('images/waterAttack/waterAttack33.png');
+    background-size: cover;
+  }
+  100%{ 
+    background: url('images/waterAttack/waterAttack44.png');
+    background-size: cover;
+  }
+}
+ @keyframes play3 {
+  /* 100% { background-position: -606px; } */
+   0%{ background: url('images/neutralAttack/neutralAttack11.png') }
+  25%{ background: url('images/neutralAttack/neutralAttack22.png') }
+  50%{ background: url('images/neutralAttack/neutralAttack33.png') }
+  100%{ background: url('images/neutralAttack/neutralAttack44.png') }
+} 
 #pokemon2{
-  border:solid;
-  position:absolute;
-  right:450px;
-  top: 300px;
+  position: absolute;
+  top: 200px;
+  right: 400px;
+}
+.attackBTN{
+  font-family: "8-bit";
+  padding: 10px 15px;
+  border: 1px solid transparent;
+  border-radius: 5px;
 }
 #infoTable1, #infoTable2{
   font-size:15px;
@@ -105,6 +208,15 @@ img{
 .row1Attacks, .row2Attacks{
   margin: 30px;
 }
+
+.row1Attacks {
+  margin-bottom: 0px;
+}
+
+.row2Attacks{
+  margin-top: 0px;  
+}
+
 .row1Attacks button, .row2Attacks button{
   margin: 20px;
 }
