@@ -1,6 +1,6 @@
 $("#changePage").hide();
 $(".stadium").hide();
-$(".attack").hide();
+$(".attack").css("display", "none");;
 //variables
 let red = new Player("red");
 let gary = new Enemy("gary");
@@ -98,6 +98,9 @@ $("#typhlosion").on("click",function(){
 $("#changePage").on("click",function(){
   $("#changePage").hide();  
   $(".stadium").show();
+  $(".title").hide();
+  var song = new Audio();
+  song = src
   startFight(0);
 });
 //
@@ -148,30 +151,73 @@ function increaseOrDecreaseDamage(attacking, defending,index){
   if(attacking.team[0].type == "fire"&& defending.team[0].type =="grass"||defending.team[0].type =="bug"){
     attacking.team[0].dealDamage(40,defending,index);
     if(attacking.name == "red"){
-      $("#AnimationFire2").show();
+      $("#AnimationFire2").toggle().fadeToggle(1400);
+    }else if(attacking.name == "gary"){
+      $("#AnimationFire1").toggle().fadeToggle(1400);
     }
-
   }else if(attacking.team[0].type == "water"&&defending.team[0].type =="fire"||defending.team[0].type =="rock"){
     attacking.team[0].dealDamage(40,defending,index);
-    if(attacking.name == "gary"){
-      $("#AnimationFire1").show();
+    if(attacking.name == "red"){
+      $("#AnimationWater2").toggle().fadeToggle(1400);
+    }else if(attacking.name == "gary"){
+      $("#AnimationWater1").toggle().fadeToggle(1400);
     }
-  }else if(attacking.team[0].type == "electric"&&defending.team[0].type =="water"){
+  }else if(attacking.team[0].type === "electric"&&defending.team[0].type =="water"){
     attacking.team[0].dealDamage(40,defending,index);
+    if(attacking.name === "red"){
+      $("#AnimationFire2").toggle().fadeToggle(1400);
+    }else if(attacking.name === "gary"){
+      $("#AnimationFire1").toggle().fadeToggle(1400);
+    }
   }else if(attacking.team[0].type == "ghost"&& defending.team[0].type =="psychic"){
     attacking.team[0].dealDamage(40,defending,index);
+    if(attacking.name == "red"){
+      $("#AnimationNeutral2").toggle().fadeToggle(1400);
+    }else if(attacking.name == "gary"){
+      $("#AnimationNeutral1").toggle().fadeToggle(1400);
+    }
   }else if(attacking.team[0].type == "psychic"){
     attacking.team[0].dealDamage(30,defending,index);
+    if(attacking.name == "red"){
+      $("#AnimationNeutral2").toggle().fadeToggle(1400);
+    }else if(attacking.name == "gary"){
+      $("#AnimationNeutral1").toggle().fadeToggle(1400);
+    }
   }else if(attacking.team[0].type == "rock"&& gary.team[0].type =="fire"||defending.team[0].type =="bug"){
     attacking.team[0].dealDamage(40,defending,index);
+    if(attacking.name == "red"){
+      $("#AnimationFire2").toggle().fadeToggle(1400);
+    }else if(attacking.name == "gary"){
+      $("#AnimationFire1").toggle().fadeToggle(1400);
+    }
   }else if(attacking.team[0].type == "fire"&& defending.team[0].type =="rock"||defending.team[0].type =="water"){
     attacking.team[0].dealDamage(20,defending,index);
+    if(attacking.name == "red"){
+      $("#AnimationFire2").toggle().fadeToggle(1400);
+    }else if(attacking.name == "gary"){
+      $("#AnimationFire1").toggle().fadeToggle(1400);
+    }
   }else if(attacking.team[0].type == "water"&&defending.team[0].type =="grass"||defending.team[0].type =="dragon"){
     attacking.team[0].dealDamage(20,defending,index);
+    if(attacking.name == "red"){
+      $("#AnimationWater2").toggle().fadeToggle(1400);
+    }else if(attacking.name == "gary"){
+      $("#AnimationWater1").toggle().fadeToggle(1400);
+    }
   }else if(attacking.team[0].type == "electric"&&defending.team[0].type =="grass"||defending.team[0].type =="dragon"){
     attacking.team[0].dealDamage(20,defending,index);
+    if(attacking.name == "red"){
+      $("#AnimationFire2").toggle().fadeToggle(1400);
+    }else if(attacking.name == "gary"){
+      $("#AnimationFire1").toggle().fadeToggle(1400);
+    }
   }else{
     attacking.team[0].dealDamage(30,defending,index);
+    if(attacking.name == "red"){
+      $("#AnimationFire2").toggle().fadeToggle(1400);
+    }else if(attacking.name == "gary"){
+      $("#AnimationFire1").toggle().fadeToggle(1400);
+    }
   }
 }
 $("#attack1").on("click",function(){

@@ -3,8 +3,9 @@
   src: url(font/8bit16.ttf);
  }
 body{
-  background-color:rgba(0, 0, 105,0.4);
+  background-color:rgb(154, 202, 229);
   background-size:cover;
+  font-family: "8-bit";
 }
 #changePage{
   position:relative;
@@ -19,6 +20,7 @@ body{
 
 #text{
   font-size: 25px;
+  line-height: 25px;
 }
 #changePage a{
  color: black;
@@ -35,6 +37,9 @@ display: flex;
 padding: 10px 50px;
 margin-left: 50px;
 border: solid;
+}
+.attackPart{
+  display:flex;
 }
 .pokemonList{
   display:flex;
@@ -61,7 +66,7 @@ img{
 }
 #pokemon1{
   position: absolute;
-  top: 400px;
+  top: 250px;
   left: 500px;
 }
 #pokemon1 img{
@@ -81,7 +86,7 @@ img{
   position: absolute;
   top: 40px;
   left: 120px;
-  animation: play 1.2s steps(20);
+  animation: play 1.2s steps(20) infinite;
 }
 #AnimationWater1{
   width: 100px;
@@ -89,7 +94,7 @@ img{
   position: absolute;
   top: 60px;
   left: 80px;
-  animation: play3 1.2s steps(20);
+  animation: play2 1.2s steps(20) infinite;
 }
 #AnimationNeutral1{
   width: 100px;
@@ -106,7 +111,7 @@ img{
   position: absolute;
   top: 60px;
   left: 80px;
-  animation: play 1.2s steps(20);
+  animation: play 1.2s steps(20) infinite;
 }
 #AnimationWater2{
   width: 200px;
@@ -114,7 +119,7 @@ img{
   position: absolute;
   bottom: 30px;
   left: 45px;
-  animation: play2 1.2s steps(20);
+  animation: play2 1.2s steps(20) infinite;
 }
 #AnimationNeutral2{
   width: 100px;
@@ -125,7 +130,7 @@ img{
   animation: play3 1.2s steps(20);
 }
 @keyframes play {
-   100% { background-position: -606px; } 
+   /* 100% { background-position: -606px; }  */
    0%{ background: url('images/fireAttack/fireAttack11.PNG') }
   25%{ background: url('images/fireAttack/fireAttack22.PNG') }
   50%{ background: url('images/fireAttack/fireAttack33.PNG') }
@@ -159,11 +164,12 @@ img{
 } 
 #pokemon2{
   position: absolute;
-  top: 200px;
+  top: 90px;
   right: 400px;
 }
 .attackBTN{
   font-family: "8-bit";
+  width: 150px;
   padding: 10px 15px;
   border: 1px solid transparent;
   border-radius: 5px;
@@ -181,13 +187,13 @@ img{
 } 
 #infoTable1{
   position:absolute;
-  top:300px;
-  left:550px;
+  top:100px;
+  left:600px;
 }
 #infoTable2{
   position:absolute;
-  top:500px;
-  left:850px;
+  top:330px;
+  left:700px;
 }
 .attackTemplate{
   width:765px;
@@ -197,16 +203,15 @@ img{
   border-color: red;
   border-width: 20px;
   background-color: darkblue;
-  display:flex;
+  /* display:flex; */
 }
 #console{
   color:white;
 }
-.attacks{
-  margin:20px 20px;
-}
+
 .row1Attacks, .row2Attacks{
   margin: 30px;
+  display:flex;
 }
 
 .row1Attacks {
