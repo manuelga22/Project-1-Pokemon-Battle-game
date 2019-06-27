@@ -5,6 +5,7 @@ class Player {
   }
   attackEndOfTurn(index) {
     increaseOrDecreaseDamage(gary, red, index);
+    attackSound.play();
     //checks if pokemon was killed in the second turn
     if (!red.team[0].checkIfPokemonAlive()) {
       setTimeout(function() {
@@ -14,6 +15,7 @@ class Player {
   }
   attack(index) {
     increaseOrDecreaseDamage(red, gary, index);
+    attackSound.play();
     if (gary.team[0].checkIfPokemonAlive()) {
       setTimeout(function() {
         red.attackEndOfTurn(0);

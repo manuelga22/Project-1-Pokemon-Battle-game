@@ -5,6 +5,7 @@ class Enemy {
   }
   attackEndOfturn(index) {
     increaseOrDecreaseDamage(red, gary, index); //do the damage
+    attackSound.play();
     if (!gary.team[0].checkIfPokemonAlive()) {
       setTimeout(function() {
         changePokemon(gary);
@@ -13,6 +14,7 @@ class Enemy {
   }
   attack(index) {
     increaseOrDecreaseDamage(gary, red, index); //does the damage
+    attackSound.play();
     if (red.team[0].checkIfPokemonAlive()) {//check if the pokemon attacked is alive
       setTimeout(function() {
         gary.attackEndOfturn(index);

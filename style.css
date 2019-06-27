@@ -55,6 +55,9 @@ img{
   background-size:cover;
   width:800px;
   height:500px;
+  border: solid;
+  border-width: 5px;
+  border-radius: 3px;
 }
 .stadium{
   display: flex;

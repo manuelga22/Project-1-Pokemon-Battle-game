@@ -19,6 +19,7 @@ let metapod =new Pokemon("Metapod",100,"bug","images/metapod.gif",20,"songs/meta
 let tyranitar=new Pokemon("Tyranitar",110,"rock","images/Tyranitar.gif",81,"songs/tyranitar.mp3",["dragon dance","fire punch","crunch","earthquake"]);
 let typhlosion=new Pokemon("Typhlosion",100,"fire","images/typhlosion.gif",78,"songs/typhlosion.mp3",["Flamethrower","Eruption","Lava","SolarBeam"]);
 let arrayOfPokemon =[charizard,feraligatr,gengar,mewtwo,pikachu,salamance,swampert,sceptile,tyranitar,metapod,raikou,typhlosion];
+let attackSound = new Audio("songs/attack.mp3");
 //
 function addPokemontoPlayer(player,pokemon,index){
   player.team.push(pokemon[index]);
