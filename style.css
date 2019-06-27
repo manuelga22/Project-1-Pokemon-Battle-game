@@ -66,6 +66,7 @@ img{
   width: 800px;
   display: block;
   margin: 0 auto;
+  position: relative;
 }
 #pokemon1, #pokemon2{
   text-align: center;
@@ -75,8 +76,8 @@ img{
 }
 #pokemon1{
   position: absolute;
-  left: 35%;
-  top: 25%;
+  left: 15%;
+ top: 30%;
 }
 #pokemon1 img{
   width:180;
@@ -190,8 +191,8 @@ img{
 } 
 #pokemon2{
   position: absolute;
-  top:5%;
-  right: 30%;
+  top: 5%;
+  right: 0%;
 }
 .attackBTN{
   font-family: "8-bit";
