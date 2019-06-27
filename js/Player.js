@@ -34,7 +34,7 @@ class Player {
       $(".stadium").hide();
       $(".youLose").show();
       setTimeout(function(){
-      // location.reload();
+      location.reload();
       },10000);
     }
   }
