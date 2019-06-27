@@ -143,18 +143,18 @@ img{
 }
 @keyframes play {
    /* 100% { background-position: -606px; }  */
-   0%{ background: url('images/fireAttack/fireAttack11.PNG');
+   0%{ background: url('images/fireAttack/fireAttack11.png');
     background-size: cover; 
   }
   25%{ 
-    background: url('images/fireAttack/fireAttack22.PNG');
+    background: url('images/fireAttack/fireAttack22.png');
     background-size: cover;
   }
   50%{ 
-    background: url('images/fireAttack/fireAttack33.PNG'); 
+    background: url('images/fireAttack/fireAttack33.png'); 
     background-size: cover;}
   100%{ 
-    background: url('images/fireAttack/fireAttack44.PNG');
+    background: url('images/fireAttack/fireAttack44.png');
     background-size: cover; 
   }
 }  
