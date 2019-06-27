@@ -1,6 +1,8 @@
 $("#changePage").hide();
 $(".stadium").hide();
-$(".attack").css("display", "none");;
+$(".attack").css("display", "none");
+$(".youLose").hide();
+$(".youWin").hide();
 //variables
 let red = new Player("red");
 let gary = new Enemy("gary");
@@ -10,10 +12,10 @@ let raikou=new Pokemon("Raikou",110,"electric","images/raikou.gif",90,"songs/rai
 let gengar=new Pokemon("Gengar",100,"ghost","images/Gengar.gif",83,"songs/gengar.mp3",["Shadow Ball","Hex Ghost","Dazzling Gleam","Energy Ball"]);
 let mewtwo= new Pokemon("Mewtwo",150,"psychic","images/Mewtwo.gif",95,"songs/mewtwo.mp3",["Psychic","Thunder","Fire Blast","Ice Beam"]);
 let pikachu= new Pokemon("Pikachu",70,"electric","images/Pikachu.gif",85,"songs/pikachu.mp3",["Volt Tackle","Iron tail","Thunderbolt","Dig"]);
-let salamance=new Pokemon("Salamace",90,"dragon","images/Salamence.gif",75,"songs/Salamence.mp3",["Dragon Meteor","Dragon Claw","Dragon Dance","Earthquake"]);
+let salamance=new Pokemon("Salamence",90,"dragon","images/Salamence.gif",75,"songs/Salamence.mp3",["Dragon Meteor","Dragon Claw","Dragon Dance","Earthquake"]);
 let swampert=new Pokemon("Swampert",110,"water","images/Swamper.gif",92,"songs/swampert.mp3",["Surf","Water Gun","Hydro Pump","Earthquake"]);
 let sceptile=new Pokemon("Sceptile",90,"grass","images/Sceptile.gif",94,"songs/sceptile.mp3",["Swords Dance","Leaf Blade","Acrobat","Earthquake"]);
-let metapod =new Pokemon("Metapod",300,"bug","images/metapod.gif",20,"songs/metapod.mp3",["Harden","Harden","Harden","Harden"]);
+let metapod =new Pokemon("Metapod",100,"bug","images/metapod.gif",20,"songs/metapod.mp3",["Harden","Harden","Harden","Harden"]);
 let tyranitar=new Pokemon("Tyranitar",110,"rock","images/Tyranitar.gif",81,"songs/tyranitar.mp3",["dragon dance","fire punch","crunch","earthquake"]);
 let typhlosion=new Pokemon("Typhlosion",100,"fire","images/typhlosion.gif",78,"songs/typhlosion.mp3",["Flamethrower","Eruption","Lava","SolarBeam"]);
 let arrayOfPokemon =[charizard,feraligatr,gengar,mewtwo,pikachu,salamance,swampert,sceptile,tyranitar,metapod,raikou,typhlosion];
@@ -99,8 +101,8 @@ $("#changePage").on("click",function(){
   $("#changePage").hide();  
   $(".stadium").show();
   $(".title").hide();
-  var song = new Audio();
-  song = src
+  var song = new Audio("songs/trainerBattle.mp3");
+  song.play();
   startFight(0);
 });
 //
@@ -126,19 +128,29 @@ function startFight(index){
 }
 function changePokemon(enemy){
   enemy.team.splice(0,1);
+  console.log(enemy.team);
+  enemy.checkIfLost();
   if(enemy.name == "gary"){
     var sound = new Audio(gary.team[0].audio);
     sound.play();
     //display new gary pokemon
     $("#Name2").html(`<p>Name: ${gary.team[0].name}</p>`);
-    $("#pokemon2").html(`<img src="${gary.team[0].img}">`).hide().show(1000);
+    $("#pokemon2").html(`<img src="${gary.team[0].img}">
+    <div class="attack" id="AnimationFire2"></div>
+    <div class="attack" id="AnimationWater2"></div>
+    <div class="attack" id="AnimationNeutral2"></div>`).hide().show(1000);
+    $('.attack').hide();
     $("#HP2").html(`<p> HP: ${gary.team[0].hp}</p>`);
   }else if(enemy.name=="red"){
     var sound2 = new Audio(red.team[0].audio);
     sound2.play();
     //display new pokemon
     $("#Name1").html(`<p>Name: ${red.team[0].name}</p>`);
-    $("#pokemon1").html(`<img src="${red.team[0].img}" >`).hide().show(1000);
+    $("#pokemon1").html(`<img src="${red.team[0].img}" >
+    <div class="attack" id="AnimationFire1"></div>
+    <div class="attack" id="AnimationWater1"></div>
+    <div class="attack" id="AnimationNeutral1"></div>`).hide().show(1000);
+    $('.attack').hide();
     $("#HP1").html(`<p>HP: ${red.team[0].hp}</p>`);
     $("#attack1").text(`${red.team[0].attacks[0]}`);
     $("#attack2").text(`${red.team[0].attacks[1]}`);
@@ -147,79 +159,58 @@ function changePokemon(enemy){
     //
   }
 }
-function increaseOrDecreaseDamage(attacking, defending,index){
-  if(attacking.team[0].type == "fire"&& defending.team[0].type =="grass"||defending.team[0].type =="bug"){
-    attacking.team[0].dealDamage(40,defending,index);
+function chooseAnimation(attacking){
+  if(attacking.team[0].type == "fire" ||attacking.team[0].type === "psychic"||attacking.team[0].type === "rock"||attacking.team[0].type === "electric"){
     if(attacking.name == "red"){
-      $("#AnimationFire2").toggle().fadeToggle(1400);
-    }else if(attacking.name == "gary"){
-      $("#AnimationFire1").toggle().fadeToggle(1400);
-    }
-  }else if(attacking.team[0].type == "water"&&defending.team[0].type =="fire"||defending.team[0].type =="rock"){
-    attacking.team[0].dealDamage(40,defending,index);
-    if(attacking.name == "red"){
-      $("#AnimationWater2").toggle().fadeToggle(1400);
-    }else if(attacking.name == "gary"){
-      $("#AnimationWater1").toggle().fadeToggle(1400);
-    }
-  }else if(attacking.team[0].type === "electric"&&defending.team[0].type =="water"){
-    attacking.team[0].dealDamage(40,defending,index);
-    if(attacking.name === "red"){
       $("#AnimationFire2").toggle().fadeToggle(1400);
     }else if(attacking.name === "gary"){
       $("#AnimationFire1").toggle().fadeToggle(1400);
     }
+   }else if(attacking.team[0].type === "water"){
+    if(attacking.name == "red"){
+      $("#AnimationWater2").toggle().fadeToggle(2400);
+    }else if(attacking.name == "gary"){
+      $("#AnimationWater1").toggle().fadeToggle(2400);
+    }
+   }else{
+    if(attacking.name == "red"){
+      $("#AnimationNeutral2").toggle().fadeToggle(2400);
+    }else if(attacking.name == "gary"){
+      $("#AnimationNeutral1").toggle().fadeToggle(2400);
+    }
+   }
+  }
+function increaseOrDecreaseDamage(attacking, defending,index){
+  if(attacking.team[0].type == "fire"&& defending.team[0].type =="grass"||defending.team[0].type =="bug"){
+    attacking.team[0].dealDamage(40,defending,index);
+    chooseAnimation(attacking);
+  }else if(attacking.team[0].type == "water"&&defending.team[0].type =="fire"||defending.team[0].type =="rock"){
+    attacking.team[0].dealDamage(40,defending,index);
+    chooseAnimation(attacking);
+  }else if(attacking.team[0].type === "electric"&&defending.team[0].type =="water"){
+    attacking.team[0].dealDamage(40,defending,index);
+    chooseAnimation(attacking);
   }else if(attacking.team[0].type == "ghost"&& defending.team[0].type =="psychic"){
     attacking.team[0].dealDamage(40,defending,index);
-    if(attacking.name == "red"){
-      $("#AnimationNeutral2").toggle().fadeToggle(1400);
-    }else if(attacking.name == "gary"){
-      $("#AnimationNeutral1").toggle().fadeToggle(1400);
-    }
-  }else if(attacking.team[0].type == "psychic"){
-    attacking.team[0].dealDamage(30,defending,index);
-    if(attacking.name == "red"){
-      $("#AnimationNeutral2").toggle().fadeToggle(1400);
-    }else if(attacking.name == "gary"){
-      $("#AnimationNeutral1").toggle().fadeToggle(1400);
-    }
+    chooseAnimation(attacking);
   }else if(attacking.team[0].type == "rock"&& gary.team[0].type =="fire"||defending.team[0].type =="bug"){
     attacking.team[0].dealDamage(40,defending,index);
-    if(attacking.name == "red"){
-      $("#AnimationFire2").toggle().fadeToggle(1400);
-    }else if(attacking.name == "gary"){
-      $("#AnimationFire1").toggle().fadeToggle(1400);
-    }
+    chooseAnimation(attacking);
   }else if(attacking.team[0].type == "fire"&& defending.team[0].type =="rock"||defending.team[0].type =="water"){
     attacking.team[0].dealDamage(20,defending,index);
-    if(attacking.name == "red"){
-      $("#AnimationFire2").toggle().fadeToggle(1400);
-    }else if(attacking.name == "gary"){
-      $("#AnimationFire1").toggle().fadeToggle(1400);
-    }
+    chooseAnimation(attacking);
   }else if(attacking.team[0].type == "water"&&defending.team[0].type =="grass"||defending.team[0].type =="dragon"){
     attacking.team[0].dealDamage(20,defending,index);
-    if(attacking.name == "red"){
-      $("#AnimationWater2").toggle().fadeToggle(1400);
-    }else if(attacking.name == "gary"){
-      $("#AnimationWater1").toggle().fadeToggle(1400);
-    }
+    chooseAnimation(attacking);
   }else if(attacking.team[0].type == "electric"&&defending.team[0].type =="grass"||defending.team[0].type =="dragon"){
     attacking.team[0].dealDamage(20,defending,index);
-    if(attacking.name == "red"){
-      $("#AnimationFire2").toggle().fadeToggle(1400);
-    }else if(attacking.name == "gary"){
-      $("#AnimationFire1").toggle().fadeToggle(1400);
-    }
+    chooseAnimation(attacking);
   }else{
     attacking.team[0].dealDamage(30,defending,index);
-    if(attacking.name == "red"){
-      $("#AnimationFire2").toggle().fadeToggle(1400);
-    }else if(attacking.name == "gary"){
-      $("#AnimationFire1").toggle().fadeToggle(1400);
-    }
+    chooseAnimation(attacking);
   }
 }
+
 $("#attack1").on("click",function(){
   $(this).css("pointer-events", "none");
   if(red.team[0].speed>gary.team[0].speed){

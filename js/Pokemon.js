@@ -14,7 +14,6 @@ class Pokemon{
     }else return false;
   }
  dealDamage(amount,enemy,index){
-   let damage = amount;
    if(amount==30 && enemy.name == "gary"){
     $("#text").text(`${red.team[0].name} used 
     ${red.team[0].attacks[index]}`);

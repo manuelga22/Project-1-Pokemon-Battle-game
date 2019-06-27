@@ -6,6 +6,8 @@ body{
   background-color:rgb(154, 202, 229);
   background-size:cover;
   font-family: "8-bit";
+  width:800px;
+  margin: 0 auto;
 }
 #changePage{
   position:relative;
@@ -58,16 +60,20 @@ img{
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 800px;
+  display: block;
+  margin: 0 auto;
 }
 #pokemon1, #pokemon2{
   text-align: center;
   width: 300px;
   height:260px;
+
 }
 #pokemon1{
   position: absolute;
-  top: 250px;
-  left: 500px;
+  left: 35%;
+  top: 25%;
 }
 #pokemon1 img{
   width:180;
@@ -81,60 +87,73 @@ img{
   height:250px;
 }
 #AnimationFire1{
-  width: 100px;
-  height:120px;
+  width: 200px;
+  height: 300px;
+  z-index:2;
   position: absolute;
-  top: 40px;
-  left: 120px;
-  animation: play 1.2s steps(20) infinite;
+  left: 20%;
+  top: -15%;
+  animation: play 0.8s steps(20) infinite;
 }
 #AnimationWater1{
-  width: 100px;
-  height:120px;
+  width: 200px;
+  height: 300px;
+  z-index:2;
   position: absolute;
-  top: 60px;
-  left: 80px;
-  animation: play2 1.2s steps(20) infinite;
+  left: 20%;
+  top: -15%;
+  animation: play2 0.8s steps(20) infinite;
 }
 #AnimationNeutral1{
-  width: 100px;
-  height:120px;
+  width: 200px;
+  height: 300px;
+  z-index:2;
   position: absolute;
-  top: 40px;
-  left: 120px;
-  animation: play3 1.2s steps(20);
+  left: 20%;
+  top: -15%;
+  animation: play3 0.8s steps(20) infinite;
 }
 
 #AnimationFire2{
-  width: 100px;
-  height:120px;
+  width: 200px;
+  height: 300px;
   position: absolute;
-  top: 60px;
-  left: 80px;
-  animation: play 1.2s steps(20) infinite;
+  top:10%;
+  right: 30%;
+  animation: play 0.8s steps(20) infinite;
 }
 #AnimationWater2{
   width: 200px;
   height: 300px;
   position: absolute;
-  bottom: 30px;
-  left: 45px;
-  animation: play2 1.2s steps(20) infinite;
+  top:10%;
+  right: 30%;
+  animation: play2 0.8s steps(20) infinite;
 }
 #AnimationNeutral2{
-  width: 100px;
-  height:120px;
+  width: 200px;
+  height: 300px;
   position: absolute;
-  top: 60px;
-  left: 80px;
-  animation: play3 1.2s steps(20);
+  top:10%;
+  right: 30%;
+  animation: play3 0.8s steps(20) infinite;
 }
 @keyframes play {
    /* 100% { background-position: -606px; }  */
-   0%{ background: url('images/fireAttack/fireAttack11.PNG') }
-  25%{ background: url('images/fireAttack/fireAttack22.PNG') }
-  50%{ background: url('images/fireAttack/fireAttack33.PNG') }
-  100%{ background: url('images/fireAttack/fireAttack44.PNG') }
+   0%{ background: url('images/fireAttack/fireAttack11.PNG');
+    background-size: cover; 
+  }
+  25%{ 
+    background: url('images/fireAttack/fireAttack22.PNG');
+    background-size: cover;
+  }
+  50%{ 
+    background: url('images/fireAttack/fireAttack33.PNG'); 
+    background-size: cover;}
+  100%{ 
+    background: url('images/fireAttack/fireAttack44.PNG');
+    background-size: cover; 
+  }
 }  
 @keyframes play2 {
   /* 100% { background-position: -606px; } */
@@ -157,15 +176,19 @@ img{
 }
  @keyframes play3 {
   /* 100% { background-position: -606px; } */
-   0%{ background: url('images/neutralAttack/neutralAttack11.png') }
-  25%{ background: url('images/neutralAttack/neutralAttack22.png') }
-  50%{ background: url('images/neutralAttack/neutralAttack33.png') }
-  100%{ background: url('images/neutralAttack/neutralAttack44.png') }
+   0%{ background: url('images/neutralAttack/neutralAttack11.png');
+    background-size: cover; }
+  25%{ background: url('images/neutralAttack/neutralAttack22.png');
+    background-size: cover; }
+  50%{ background: url('images/neutralAttack/neutralAttack33.png');
+    background-size: cover; }
+  100%{ background: url('images/neutralAttack/neutralAttack44.png');
+    background-size: cover; }
 } 
 #pokemon2{
   position: absolute;
-  top: 90px;
-  right: 400px;
+  top:5%;
+  right: 30%;
 }
 .attackBTN{
   font-family: "8-bit";
@@ -187,13 +210,13 @@ img{
 } 
 #infoTable1{
   position:absolute;
-  top:100px;
-  left:600px;
+  top: 15%;
+  left: 45%;
 }
 #infoTable2{
-  position:absolute;
-  top:330px;
-  left:700px;
+  position: absolute;
+  left: 50%;
+  top: 35%;
 }
 .attackTemplate{
   width:765px;
@@ -213,23 +236,26 @@ img{
   margin: 30px;
   display:flex;
 }
-
 .row1Attacks {
   margin-bottom: 0px;
 }
-
 .row2Attacks{
   margin-top: 0px;  
 }
-
 .row1Attacks button, .row2Attacks button{
   margin: 20px;
 }
 .youWin{
-  width: 60%;
-  height:20%;
+  width: 600px;
+  height:200px;
+  display:block;
+  font-size:60px;
+  margin: 0 auto;
 }
 .youLose{
-  width: 60%;
-  height:20%;
+  width: 600px;
+  height:200px;
+  font-size:60px;
+  display:block;
+  margin: 0 auto;
 }

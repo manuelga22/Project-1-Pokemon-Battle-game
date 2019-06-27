@@ -13,11 +13,9 @@ class Enemy {
   }
   attack(index) {
     increaseOrDecreaseDamage(gary, red, index); //does the damage
-    if (red.team[0].checkIfPokemonAlive()) {
-      //check if the pokemon attacked is alive
+    if (red.team[0].checkIfPokemonAlive()) {//check if the pokemon attacked is alive
       setTimeout(function() {
         gary.attackEndOfturn(index);
-        red.checkIfLost();
         $("button").css("pointer-events", "all");
       }, 2000);
     } else {
@@ -29,8 +27,12 @@ class Enemy {
     }
   }
   checkIfLost(){
-    if(this.team.length == 0){
-      $(".youWin").text("YOU WIN");
+    if(this.team.length ==0){
+      $(".stadium").hide();
+      $(".youWin").show();
+      setTimeout(function(){
+       location.reload();
+      },10000);
     }
   }
 } //end of class

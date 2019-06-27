@@ -17,17 +17,23 @@ class Player {
     if (gary.team[0].checkIfPokemonAlive()) {
       setTimeout(function() {
         red.attackEndOfTurn(0);
-        gary.checkIfLost()
         $("button").css("pointer-events", "all");
       }, 2000);
     } else {
-      gary.changePokemon(gary);
+      setTimeout(function() {
+        changePokemon(gary);
+      }, 1500);
       $("button").css("pointer-events", "all");
     }
   }
   checkIfLost(){
+    console.log(this.team.length);
     if(this.team.length == 0){
-      $(".youLose").text("YOU LOSE");
+      $(".stadium").hide();
+      $(".youLose").show();
+      setTimeout(function(){
+      // location.reload();
+      },10000);
     }
   }
 }
